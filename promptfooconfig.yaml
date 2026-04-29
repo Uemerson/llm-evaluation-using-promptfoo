@@ -1,0 +1,14 @@
+providers:
+  - id: bedrock:amazon.nova-lite-v1:0
+
+prompts:
+  - 'Explain {{concept}} in simple terms'
+
+tests:
+  - vars:
+      concept: 'quantum computing'
+    assert:
+      - type: contains
+        value: 'qubit'
+      - type: llm-rubric
+        value: 'The explanation should be understandable by a high school student'
